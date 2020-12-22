@@ -10,6 +10,10 @@ from kivy.vector import Vector
 from kivy.clock import Clock
 from random import randint
 
+class PongPaddle(Widget):
+    pass
+
+
 class PongBall(Widget):
     velocity_x = NumericProperty(0)
     velocity_y = NumericProperty(0)
@@ -30,11 +34,11 @@ class PongGame(Widget):
         self.ball.move()
 
         # bounce off top and bottom
-        if (self.ball.y < 0) or (self.ball.y > self.height):
+        if (self.ball.y < 0) or (self.ball.y > self.height -50):
             self.ball.velocity_y *= -1
 
         # bounce off left and right            
-        if (self.ball.x < 0) or (self.ball.x > self.width):
+        if (self.ball.x < 0) or (self.ball.x > self.width -50):
             self.ball.velocity_x *= -1    
 
 class PongApp(App):
